@@ -29,6 +29,6 @@ typedef struct types
 {
 	char id;
 	char* (*func)(va_list);
-} printf;
+} print;
 
 #endif

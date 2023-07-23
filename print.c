@@ -41,45 +41,59 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
+		{
 			len = check_buffer_overflow(buffer, len);
 			buffer[len++] = format[i++];
 			total_len++;
+		}
 		else
 		{
 			i++;
 			if (format[i] == '\0')
+			{
 				va_end(list);
 				free(buffer);
 				return (-1);
+			}
 			if (format[i] == '%')
+			{
 				len = check_buffer_overflow(buffer, len);
 				buffer[len++] = format[i];
 				total_len++;
+			}
 			else
 			{
 				f = get_func(format[i]);
 				if (f == NULL)
+				{
 					len = check_buffer_overflow(buffer, len);
 					buffer[len++] = '%';
 					total_len++;
 					buffer[len++] = format[i];
 					total_len++;
+				}
 				else
 				{
 					str = f(list);
 					if (str == NULL)
+					{
 						va_end(list);
 						free(buffer);
 						return (-1);
+					}
 					if (format[i] == 'c' && str[0] == '\0')
+					{
 						len = check_buffer_overflow(buffer, len);
 						buffer[len++] = '\0';
 						total_len++;
+					}
 					while (str[j] != '\0')
+					{
 						len = check_buffer_overflow(buffer, len);
 						buffer[len++] = str[j];
 						total_len++;
 						j++;
+					}
 
 					free(str);
 				}

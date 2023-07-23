@@ -21,7 +21,7 @@ char* (*get_func(char i))(va_list)
 		{'\0', NULL}
 	};
 
-	while (key[k].id != '\0')
+	while (keys[k].id != '\0')
 	{
 		if (keys[k].id == i)
 			return (keys[k].func);
