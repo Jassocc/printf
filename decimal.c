@@ -40,4 +40,26 @@ char *_itos(int div, int length, int n)
 
 char *print_d(va_list list)
 {
+	int length, div, n, temp;
 
+	n = va_arg(list, int);
+	temp = n;
+	length = 0;
+	div = 1;
+
+	if (n == 0)
+	{
+		length++;
+		return (_itos(div, length, n));
+	}
+	while (temp != 0)
+	{
+		length += 1;
+		if (length > 1)
+		{
+			div *= 10;
+		}
+		temp /= 10;
+	}
+	return (_itos(div, length, n)
+}
