@@ -61,5 +61,5 @@ char *print_d(va_list list)
 		}
 		temp /= 10;
 	}
-	return (_itos(div, length, n);
+	return (_itos(div, length, n));
 }
