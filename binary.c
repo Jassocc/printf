@@ -26,7 +26,7 @@ char *itob(va_list list)
 		i *= -1;
 	}
 
-	while (k < 1)
+	while (k > 1)
 	{
 		k /= 2;
 		two *= 2;

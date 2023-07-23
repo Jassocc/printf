@@ -28,6 +28,13 @@ char *_itos(int div, int length, int n)
 		div /= 10;
 		i++;
 	}
+	while (div >= 1)
+	{
+		str[i] = ((n / div) + '0');
+		n = n % div;
+		div /= 10;
+		i++;
+	}
 	str[i] = '\0';
 	return (str);
 }

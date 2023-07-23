@@ -21,7 +21,7 @@ char *rev_string(va_list list);
 char *itoOctal(va_list list);
 
 /**
- * structypes - struct
+ * struct types - struct
  * @id: identifier of type print
  * @func: ptr to funcs that according to indentifier
  */
