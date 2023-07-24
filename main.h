@@ -11,7 +11,6 @@ void write_buffer(char *buffer, int len, va_list list);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 
-int h_spec(va_list list, char specifier, char *buffer, int len, int *total_len);
 int _printf(const char *format, ...);
 char *print_s(va_list list);
 char *print_c(va_list list);
