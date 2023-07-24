@@ -26,7 +26,7 @@ int check_buffer_overflow(char *buffer, int len)
  */
 int _printf(const char *format, ...)
 {
-int len = 0, total_len = 0, i = 0, j = 0;
+int len = 0, total_len = 0, i = 0, j;
 	va_list list;
 	char *buffer, *str;
 	char *(*f)(va_list);
@@ -37,7 +37,7 @@ int len = 0, total_len = 0, i = 0, j = 0;
 	if (buffer == NULL)
 		return (-1);
 	va_start(list, format);
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		if (format[i] != '%')
 		{	len = check_buffer_overflow(buffer, len);
@@ -71,12 +71,10 @@ int len = 0, total_len = 0, i = 0, j = 0;
 					{	len = check_buffer_overflow(buffer, len);
 						buffer[len++] = '\0';
 						total_len++; }
-					j = 0;
-					while (str[j] != '\0')
+					for (j = 0; str[j]; j++)
 					{	len = check_buffer_overflow(buffer, len);
 						buffer[len++] = str[j];
-						total_len++;
-						j++; }
+						total_len++; }
 					free(str);	}
 			}	i++;
 		}
