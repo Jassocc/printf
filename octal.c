@@ -18,7 +18,7 @@ char *itoOctal(va_list list)
 	if (s == NULL)
 		return (NULL);
 
-	while (k > 7) 
+	while (k > 7)
 	{
 		k /= 8;
 		eights *= 8;
