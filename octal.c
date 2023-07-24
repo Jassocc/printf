@@ -8,25 +8,17 @@
 char *itoOctal(va_list list)
 {
 	int j = 0, eights = 1;
-	int i, k;
+	unsigned int i, k;
 	char *s;
 
-	k = va_arg(list, int);
+	k = va_arg(list, unsigned int);
 	i = k;
 
 	s = malloc(sizeof(char) * 12);
 	if (s == NULL)
 		return (NULL);
 
-	if (k < 0)
-	{
-		s[0] = 1 + '0';
-		j++;
-		k *= -1;
-		i *= -1;
-	}
-
-	while (k > 1)
+	while (k > 7) 
 	{
 		k /= 8;
 		eights *= 8;
