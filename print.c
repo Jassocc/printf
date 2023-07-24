@@ -26,58 +26,44 @@ int check_buffer_overflow(char *buffer, int len)
  */
 int _printf(const char *format, ...)
 {
-int len = 0, total_len = 0, i = 0, j;
+	int len = 0, total_len = 0, i = 0, j;
 	va_list list;
-	char *buffer, *str;
-	char *(*f)(va_list);
+	char *buffer, *str, *(*f)(va_list);
 
-	if (format == NULL)
+	if (!format)
 		return (-1);
 	buffer = create_buffer();
-	if (buffer == NULL)
+	if (!buffer)
 		return (-1);
 	va_start(list, format);
 	while (format[i])
 	{
 		if (format[i] != '%')
-		{	len = check_buffer_overflow(buffer, len);
 			buffer[len++] = format[i++];
-			total_len++; }
 		else
-		{	i++;
+		{ i++;
 			if (format[i] == '\0')
-			{	va_end(list);
+			{ va_end(list);
 				free(buffer);
 				return (-1); }
 			if (format[i] == '%')
-			{	len = check_buffer_overflow(buffer, len);
 				buffer[len++] = format[i];
-				total_len++; }
 			else
-			{	f = get_func(format[i]);
-				if (f == NULL)
-				{	len = check_buffer_overflow(buffer, len);
-					buffer[len++] = '%';
-					total_len++;
-					buffer[len++] = format[i];
-					total_len++; }
-				else
-				{	str = f(list);
-					if (str == NULL)
-					{	va_end(list);
+			{ f = get_func(format[i]);
+				if (f)
+				{ str = f(list);
+					if (!str)
+					{ va_end(list);
 						free(buffer);
 						return (-1); }
-					if (format[i] == 'c' && str[0] == '\0')
-					{	len = check_buffer_overflow(buffer, len);
+					if (format[i] == 'c' && !str[0])
 						buffer[len++] = '\0';
-						total_len++; }
+					else
+					{
 					for (j = 0; str[j]; j++)
-					{	len = check_buffer_overflow(buffer, len);
-						buffer[len++] = str[j];
-						total_len++; }
-					free(str);	}
-			}	i++;
-		}
-	}	write_buffer(buffer, len, list);
-	return (total_len);
-}
+						buffer[len++] = str[j]; }
+					free(str); }
+			} i++;
+		} total_len++;
+	} write_buffer(buffer, len, list);
+	return (total_len); }
