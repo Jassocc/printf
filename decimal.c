@@ -8,7 +8,7 @@
  * Return: string
  */
 
-char *_itos(int div, int length, int n)
+char *_itob(int div, int length, int n)
 {
 	char *str;
 	int i = 0;
