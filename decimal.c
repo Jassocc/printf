@@ -13,7 +13,7 @@ char *_itos(int div, int length, int n)
 	char *str;
 	int i = 0;
 
-	str = malloc(sizeof(char) * length + 2);
+	str = malloc(sizeof(char) * (length + 2));
 	if (str == NULL)
 		return (NULL);
 	if (n < 0)
@@ -47,7 +47,7 @@ char *_itos(int div, int length, int n)
 
 char *print_d(va_list list)
 {
-	int length, div, n, temp;
+	int length, div, temp, n;
 
 	n = va_arg(list, int);
 	temp = n;
@@ -63,9 +63,7 @@ char *print_d(va_list list)
 	{
 		length += 1;
 		if (length > 1)
-		{
 			div *= 10;
-		}
 		temp /= 10;
 	}
 	return (_itos(div, length, n));
