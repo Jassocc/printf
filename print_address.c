@@ -3,7 +3,6 @@
 /**
  * get_h_digit - convert hex to digit
  * @num: int to convert
- * @uppercase: 1 for upper 0 for lower
  * Return: hex
  */
 char get_h_digit(int num)
@@ -25,8 +24,8 @@ int get_h_string_length(void *address)
 
 		while (addr != 0)
 		{
-				length++;
-				addr >>= 4;
+			length++;
+			addr >>= 4;
 		}
 		return ((length == 0) ? 1 : length);
 }
@@ -44,12 +43,12 @@ char *get_h_string(void *ptr)
 
 	if (result == NULL)
 	return (NULL);
-	
+
 	result[0] = '0';
 	result[1] = 'x';
 	result[size - 1] = '\0';
 
-	for(i = size - 2; i > 1; i--)
+	for (i = size - 2; i > 1; i--)
 	{
 		digit = address & 0xF;
 		result[i] = get_h_digit(digit);
@@ -65,6 +64,6 @@ char *get_h_string(void *ptr)
 char *print_address(va_list list)
 {
 	void *ptr = va_arg(list, void *);
-	
+
 	return (get_h_string(ptr));
 }
