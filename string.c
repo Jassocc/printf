@@ -17,7 +17,7 @@ char *print_s(va_list str)
 		s = "(null)";
 	}
 
-	len = strlen(s);
+	len = _strlen(s);
 
 	p = malloc(sizeof(char) * len + 1);
 

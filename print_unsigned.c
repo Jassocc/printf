@@ -9,7 +9,7 @@
 char *print_unsigned(va_list list)
 {
 	unsigned int num = va_arg(list, unsigned int);
-	unsigned int copy = num , divisor;
+	unsigned int copy = num, divisor;
 	int count = 0, j, i;
 	char *result;
 

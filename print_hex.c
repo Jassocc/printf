@@ -26,4 +26,35 @@ int printhex(va_list list)
 		num2 = num2 / 16;
 	}
 
-	numhex == malloc(contame + 1)
+	numhex == malloc(contame + 1);
+	if (numhex == NULL)
+		return (NULL);
+
+	for (i = 0; num != 0; i++)
+	{
+		copy = num % 16;
+		if (copy < 10)
+			numhex[i] = copy + '0';
+		else
+			numhex[i] = copy - 10 + 'a';
+		num = num / 16;
+	}
+	for (i2 = i - 1; i2 >= 0; i2--)
+		numhex[i2] = numhex[i2];
+	numhex[contame] = '\0';
+	return (numhex);
+}
+
+/**
+ * printHEX - prints hexadecimal
+ * @list :va_list containing hex
+ * Return: buffer containing hex
+ */
+char *printHEX(va_list list)
+{
+	unsigned int NUM = va_arg(list, unsigned int);
+	unsigned int NUM2;
+	int I, I2, COPY, CONTAME = 0;
+	char *NUMHEX;
+
+}
