@@ -3,7 +3,6 @@
 /**
  * itob - change int binary
  * @list: int to change
- * @format: format
  * Return: string with binary
  */
 char *itob(va_list list)
