@@ -22,6 +22,7 @@ char* (*get_func(char i))(va_list)
 		{'x', printhex},
 		{'X', printHEX},
 		{'p', print_address},
+		{'S', print_S},
 		{'\0', NULL}
 	};
 

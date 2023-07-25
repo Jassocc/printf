@@ -27,6 +27,7 @@ char *print_unsigned(va_list list);
 char *printhex(va_list list);
 char *printHEX(va_list list);
 char *print_address(va_list list);
+char *print_S(va_list list);
 
 /**
  * struct types - struct
