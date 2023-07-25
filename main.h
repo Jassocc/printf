@@ -21,6 +21,9 @@ char *rot13(va_list list);
 char *rev_string(va_list list);
 char *itoOctal(va_list list);
 char *print_unsigned(va_list list);
+char *printhex(va_list list);
+char *printHEX(va_list list);
+
 /**
  * struct types - struct
  * @id: identifier of type print

@@ -19,6 +19,8 @@ char* (*get_func(char i))(va_list)
 		{'r', rev_string},
 		{'o', itoOctal},
 		{'u', print_unsigned},
+		{'x', printhex},
+		{'X', printHEX},
 		{'\0', NULL}
 	};
 
