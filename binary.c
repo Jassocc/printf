@@ -3,43 +3,37 @@
 /**
  * itob - change int binary
  * @list: int to change
+ * @format: format
  * Return: string with binary
  */
 char *itob(va_list list)
 {
-	int j = 0, two = 1;
-	int i, k;
-	char *s;
+	unsigned int num = va_arg(list, unsigned int);
+	unsigned int num2;
+	int i, contame = 0;
+	char *numbin;
 
-	k = va_arg(list, int);
-	i = k;
-
-	s = malloc(sizeof(char) * 33);
-	if (s == NULL)
+	if (num == 0)
+	{
+		numbin = malloc(2);
+		if (numbin == NULL)
+			return (NULL);
+		numbin[0] = '0';
+		numbin[1] = '\0';
+		return (numbin);
+	}
+	for (num2 = num; num2 != 0; contame++)
+	{
+		num2 = num2 / 2;
+	}
+	numbin = malloc(contame + 1);
+	if (!numbin)
 		return (NULL);
-
-	if (k < 0)
+	for (i = contame - 1; i >= 0; i--)
 	{
-		s[0] = 1 + '0';
-		j++;
-		k *= -1;
-		i *= -1;
+		numbin[i] = num % 2 +'0';
+		num = num / 2;
 	}
-
-	while (k > 1)
-	{
-		k /= 2;
-		two *= 2;
-	}
-
-	while (two > 0)
-	{
-		s[j++] = (i / two + '0');
-		i %= two;
-		two /= 2;
-	}
-
-	s[j] = '\0';
-
-	return (s);
+	numbin[contame] = '\0';
+	return (numbin);
 }
