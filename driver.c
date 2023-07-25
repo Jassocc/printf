@@ -21,6 +21,7 @@ char* (*get_func(char i))(va_list)
 		{'u', print_unsigned},
 		{'x', printhex},
 		{'X', printHEX},
+		{'p', print_address},
 		{'\0', NULL}
 	};
 
