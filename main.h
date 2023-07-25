@@ -10,6 +10,7 @@ char *create_buffer(void);
 void write_buffer(char *buffer, int len, va_list list);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
+int count_unsigned_digits(unsigned int number);
 
 int _printf(const char *format, ...);
 char *print_s(va_list list);
@@ -19,7 +20,7 @@ char *itob(va_list list);
 char *rot13(va_list list);
 char *rev_string(va_list list);
 char *itoOctal(va_list list);
-
+char *print_unsigned(va_list list);
 /**
  * struct types - struct
  * @id: identifier of type print
